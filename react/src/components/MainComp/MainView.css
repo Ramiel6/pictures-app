@@ -1,0 +1,6 @@
+.min-height-fiexd{
+    min-height: 900px
+}
+.ui.default.dropdown:not(.button) > .text, .ui.dropdown:not(.button) > .default.text{
+    color: rgba(0,0,0,.87) !important;
+}
