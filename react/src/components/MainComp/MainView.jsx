@@ -2,8 +2,8 @@ import React from 'react';
 import StackGrid from "react-stack-grid";
 import { Card, Icon, Dimmer, Image, Popup, Modal, Label, Divider } from 'semantic-ui-react';
 import LoadingView from '../LoadingView/LoadingView';
-import './MainView.css'
-import matthew from '../../assets/matthew.png'
+import './MainView.css';
+import brokenPicture from '../../assets/brokenPicture.png';
 
 
 class DimmerImage extends React.Component {
@@ -25,7 +25,7 @@ class DimmerImage extends React.Component {
             <Icon name='zoom' size='huge' />
           </Dimmer>
           {imgError ? 
-            <Image src={matthew} />
+            <Image src={brokenPicture} />
           :
             <Image 
               onError={this.handleImgFallback} 
