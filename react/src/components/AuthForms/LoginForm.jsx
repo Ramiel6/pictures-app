@@ -86,10 +86,10 @@ let LoginForm = props => {
         </Message>
         <Message>
          <p> Or login with</p>
-          <Button color='google plus' size='small'>
+          <Button color='google plus' as='a' href="/auth/google" size='small'>
                   <Icon name='google' /> Google Account
                 </Button>{' '}
-          <Button basic href="/auth/github" size='small'>
+          <Button basic as='a' href="/auth/github" size='small'>
               <Icon name='github' /> Github Account
           </Button>
         </Message>

@@ -29,13 +29,13 @@ const GoogleContent = props => (
             <div>
                 <Image centered circular size='small' className='m-4' rc={ (props.user.local && props.user.local.profilePicture) || avatar } />
                 <div className='text-center w-full'>
-                    <strong>name:</strong>{props.user.google.name}<br />
-                    <strong>Email:</strong>{props.user.google.email}
+                    <strong>Name: </strong>{props.user.google.name}<br />
+                    <strong>Email: </strong>{props.user.google.email}
                 </div>
             </div>
             :
             <div className="text-center">
-                <Button color='google plus'>
+                <Button color='google plus' as='a' href="/auth/google">
                   <Icon name='google' size='large' /> Add Google Account
                 </Button>
             </div>
@@ -48,13 +48,13 @@ const GithubContent = props => (
         <div>
             <Image centered circular size='small' className='m-4' rc={ (props.user.local && props.user.local.profilePicture) || avatar } />
             <div className='text-center w-full'>
-                <strong>name:</strong>{props.user.github.name}<br />
-                <strong>Email:</strong>{props.user.github.email || 'no github email!'}
+                <strong>Name: </strong>{props.user.github.name}<br />
+                <strong>Email: </strong>{props.user.github.email || 'no github email!'}
             </div>
         </div>
         :
         <div className="text-center">
-            <Button basic href="/auth/github">
+            <Button basic as='a' href="/auth/github">
               <Icon name='github' size='large' /> Add Github Account
             </Button>
         </div>

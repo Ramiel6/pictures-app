@@ -1,0 +1,19 @@
+{
+  "main.css": "static/css/main.css",
+  "main.css.map": "static/css/main.css.map",
+  "main.js": "static/js/main.js",
+  "main.js.map": "static/js/main.js.map",
+  "static/media/avatar.png": "static/media/avatar.d874068d.png",
+  "static/media/brokenPicture.png": "static/media/brokenPicture.bd183d0b.png",
+  "static/media/flags.png": "static/media/flags.9c74e172.png",
+  "static/media/icons.eot": "static/media/icons.674f.eot",
+  "static/media/icons.svg": "static/media/icons.912e.svg",
+  "static/media/icons.ttf": "static/media/icons.b068.ttf",
+  "static/media/icons.woff": "static/media/icons.fee6.woff",
+  "static/media/icons.woff2": "static/media/icons.af7a.woff2",
+  "static/media/logo.svg": "static/media/logo.5d5d.svg",
+  "static/media/mongodb.svg": "static/media/mongodb.017d.svg",
+  "static/media/nodejs.svg": "static/media/nodejs.94ca.svg",
+  "static/media/passportjs.svg": "static/media/passportjs.2a0e.svg",
+  "static/media/tailwindcss.svg": "static/media/tailwindcss.e15b.svg"
+}

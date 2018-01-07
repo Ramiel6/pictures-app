@@ -139,12 +139,12 @@ app.put("/api/picture-unlinking",isLoggedIn, function (request, response) {
 });
 
 app.get("/", function (request, response) {
-  response.sendFile(path + '/public/index.html');
+  response.sendFile(path + '/client/index.html');
 });
 
 
 app.get('*', function(request, response) {
-  response.sendFile(path + '/public/index.html');
+  response.sendFile(path + '/client/index.html');
 });
 
 };

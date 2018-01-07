@@ -1,16 +1,17 @@
+////////////////////// credit /////////////////////////////////////////////////////////////////////////
+// http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.Wd8ffTLYVdh
+// http://mherman.org/blog/2015/07/02/handling-user-authentication-with-the-mean-stack/#.Wd9nZzLYVdg
+// http://devdactic.com/restful-api-user-authentication-2/
+// https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+// https://github.com/nax3t/angular-express-passport-tutorial/blob/master/facebook.md
+// https://github.com/brandonmcquarie/easy-node-authentication-angular
+///////////////////////////////////////////////////////////////////////////////
 var LocalStrategy   = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var GitHubStrategy = require('passport-github2').Strategy;
 var configAuth = require('./authConfig.js');
-var validator = require('./authValidator.js')
+var notVaild = require('./authValidator.js');
 module.exports = function (app, passport, Account) {
-// passport.serializeUser(function(user, done) {
-//     done(null, user);
-//   });
-
-// passport.deserializeUser(function(user, done) {
-//     done(null, user);
-//   });
 
 passport.serializeUser(function (user, done) {
 		done(null, user.id);
@@ -39,10 +40,10 @@ function(req, email, password, done) {
     else if ( email.length > 100 || name.length > 100 ){
         return done(null, { error: 'Values are too long!' });
     }
-    else if ( validator.emailValidator(email) ){
+    else if ( notVaild.emailValidator(email) ){
         return done(null, { error: 'Please enter a valid email address!' });
     } 
-    else if ( name && validator.nameValidator(name) ){
+    else if ( name && notVaild.nameValidator(name) ){
         return done(null, { error: 'Please enter a valid name!' });
     }
     else {
@@ -107,7 +108,7 @@ passport.use('local-login', new LocalStrategy(
         else if ( email.length > 100 ){
             return done(null, { error: 'email value is too long!' });
         }
-        else if (validator.emailValidator(email)){
+        else if (notVaild.emailValidator(email)){
             return done(null, { error: 'Please enter a valid email address!' });
         } else {
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching

@@ -277,7 +277,7 @@ app.get('/unlink/github', function(req, res) {
     });
 
 app.get("/loginfailed", function (request, response) {
-  response.sendFile(process.cwd() + '/public/loginFailed.html');
+  response.sendFile(process.cwd() + '/client/loginFailed.html');
 });
 
 
