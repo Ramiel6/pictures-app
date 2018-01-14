@@ -2,6 +2,7 @@ import React from 'react';
 import StackGrid from "react-stack-grid";
 import { Card, Icon, Dimmer, Image, Popup, Modal, Label, Divider } from 'semantic-ui-react';
 import LoadingView from '../LoadingView/LoadingView';
+import MobileSearch from '../MobileSearch/MobileSearchContainer';
 import './MainView.css';
 import brokenPicture from '../../assets/brokenPicture.png';
 
@@ -15,7 +16,6 @@ class DimmerImage extends React.Component {
   const { active, imgError } = this.state;
     return(
       <div>
-      
         <Dimmer.Dimmable 
           dimmed={active} 
           onMouseEnter={this.handleShow}
@@ -61,6 +61,9 @@ class MainView extends React.Component {
          
          return (
              <div className='block mt-8 min-height-fiexd'>
+               {window.innerWidth < 400 && <div className="text-center mb-6">
+                <MobileSearch />
+               </div>}
               { pageLoading ?
                <LoadingView />
               :

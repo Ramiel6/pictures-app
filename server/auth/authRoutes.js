@@ -146,7 +146,7 @@ app.get('/ping', function(req, res){
 /////////////////// Social login///////////////////////////////////
 app.get('/auth/github',
 		passport.authenticate('github'));
-    
+   
 // 	app.get('/auth/github/callback',
 // 		passport.authenticate('github', {
 // 			successRedirect: '/',
@@ -161,7 +161,7 @@ app.get('/auth/github/callback',function(req, res,next) {
                 // return res.status(500).json({ err: err.message });
                 return  res.redirect('/');
             }
-            // console.log(user)
+            console.log('github/callback')
             // res.status(200).json({
             //   status: 'Login successful!',
             //   name: user.github.name,

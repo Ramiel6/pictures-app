@@ -8,11 +8,12 @@ import {
 } from 'semantic-ui-react';
 import avatar from '../../assets/avatar.png';
 
+// const isMobile = () => window.innerWidth < 400;
 
 const NavView = (props) => (
   <Menu fixed='top' size='large' pointing>
            <Menu.Item header as={Link} to='/'>Pictures App</Menu.Item>
-          <Menu.Item name='home' as={Link} to='/' active={props.activeMenu === 'home'} onClick={() => props.activateNav('home')}/>
+         {window.innerWidth < 800 && <Menu.Item name='home' as={Link} to='/' active={props.activeMenu === 'home'} onClick={() => props.activateNav('home')}/>}
           <Menu.Item name='Add'  as={Link} to='/add-picture' active={props.activeMenu === 'add'}  />
           {props.isLogedin && <Menu.Item>
            <Dropdown options={viewOptions} defaultValue={viewOptions[0].value} onChange={(e,data)=>props.viewChange(e,data)}/>

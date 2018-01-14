@@ -33,7 +33,7 @@ const validate = values => {
 
 const renderTextField = ({ input, name, type, meta: { touched, error }, ...custom }) => (
      
-  <Form.Group inline style={{marginLeft:'27.5%'}}>
+  <Form.Group inline style={window.innerWidth > 800 ? {marginLeft:'27.5%'}: null}>
       <Form.Input 
           width={10}
           name={name}
@@ -42,7 +42,8 @@ const renderTextField = ({ input, name, type, meta: { touched, error }, ...custo
           {...input}
           {...custom}
         />
-        {(touched && error) && <Label basic color='red' pointing='left'>{error}</Label> }
+        {(touched && error) && 
+        <Label basic color='red' pointing={window.innerWidth > 800 ? 'left' : 'above'}>{error}</Label> }
     </Form.Group>
       
 );
@@ -70,7 +71,7 @@ let SignupForm = props => {
         </Grid.Column>
         </Grid.Row>
       <Grid.Row>
-      <Grid.Column textAlign='center'>
+      <Grid.Column textAlign='center' >
         <Form onSubmit={handleSubmit}>
           
             <Field component={renderTextField}

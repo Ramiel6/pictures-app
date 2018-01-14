@@ -75,7 +75,7 @@ let AddForm = props => {
         </Grid.Column>
         </Grid.Row>
     <Grid.Row>
-      <Grid.Column width={8}>
+      <Grid.Column width={8} mobile={14} computer={8}>
         
        {picUrl && picUrlError && <Label basic color='red' pointing='below'>Broken Link</Label>}
         {picUrl && 

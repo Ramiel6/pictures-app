@@ -14,6 +14,7 @@ import { Container } from 'semantic-ui-react';
 import PrivateRoute from './PrivateRoute';
 import MainContainer from './MainComp/MainContainer';
 import NavView from './NavView/NavView';
+import MobileNavView from './MobileNavView/MobileNavView';
 import FooterView from './FooterView/FooterView';
 import LoginContainer from './AuthForms/LoginContainer';
 import SignupContainer from './AuthForms/SignupContainer';
@@ -53,7 +54,7 @@ class AppRouter extends React.Component {
          
         <ConnectedRouter history={history}>
           <div>
-            
+          {window.innerWidth > 800 ?
             <NavView 
               isLogedin={this.props.isLogedin}  
               logout={this.props.logout} 
@@ -64,7 +65,17 @@ class AppRouter extends React.Component {
               activateNav ={this.handelactivateNav}
               user = {this.props.user && this.props.user.local}
               />
-            
+              :
+            <MobileNavView 
+              isLogedin={this.props.isLogedin}  
+              logout={this.props.logout} 
+              viewChange={this.handelViewChange}
+              sortPictures = {this.handelSortPictures}
+              searchByTags = {this.handelSearchByTags}
+              activeMenu ={this.props.activeMenu}
+              activateNav ={this.handelactivateNav}
+              user = {this.props.user && this.props.user.local}
+              />}
             <Container style={{ paddingTop: 60, minHeight: '85vh' }}>
             
               <SnackBarContainer />

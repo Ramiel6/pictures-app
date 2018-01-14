@@ -30,3 +30,5 @@ package.old.json
 
 # database
 /data
+# Deploy
+/heroku

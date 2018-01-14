@@ -51,7 +51,7 @@ let LoginForm = props => {
       style={{ height: '100%' }}
       verticalAlign='middle'
     >
-      <Grid.Column style={{ maxWidth: '40%' }}>
+      <Grid.Column mobile={12} computer={6} width={6}>
         <Header as='h2' color='teal' textAlign='center'>
           <Icon name='sign in' size='massive' />
           {' '}Log-in to your account

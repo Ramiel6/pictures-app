@@ -47,6 +47,9 @@ app.post("/api/save-picture",isLoggedIn, function (request, response) {
 app.delete("/api/delete-picture/:picture_id", isLoggedIn, function (request, response) {
 	let delPicture = request.params.picture_id;
 	console.log(delPicture);
+  if (!delPicture) {
+    response.status(400).end("Nothing to delete!");
+  }
   picture.deleteOne({ "_id" : delPicture}, function (err){
           if (err) throw err;
           console.log("Deleted Successfull");
@@ -58,6 +61,9 @@ app.put("/api/like-picture", isLoggedIn, function (request, response) {
 	let likedPicture = request.body;
 	let user = request.user;
 // 	console.log(user._id);
+  if (!likedPicture) {
+    response.status(400).end("Nothing to like!");
+  }
   picture.findOne({'_id': likedPicture.pictureId}, function(err, results) { 
       if (err) throw err;
       if( results.likes.includes(user._id.toString()) ){
@@ -79,6 +85,9 @@ app.put("/api/unlike-picture",isLoggedIn, function (request, response) {
 	let likedPicture = request.body;
 	let user = request.user;
 // 	console.log(user._id);
+  if (!likedPicture) {
+    response.status(400).end("Nothing to unlike!");
+  }
   picture.findOne({'_id': likedPicture.pictureId}, function(err, results) { 
       if (err) throw err;
       if (results.likes.includes(user._id.toString()) ){
@@ -100,6 +109,9 @@ app.put("/api/picture-linking",isLoggedIn, function (request, response) {
 	let linkedPicture = request.body;
 	let user = request.user;
 // 	console.log(user._id);
+  if (!linkedPicture) {
+    response.status(400).end("Nothing to link to!");
+  }
   picture.findOne({'_id': linkedPicture.pictureId}, function(err, results) { 
       if (err) throw err;
       if( results.linkers.includes(user._id.toString()) ){
@@ -121,6 +133,9 @@ app.put("/api/picture-unlinking",isLoggedIn, function (request, response) {
 	let linkedPicture = request.body;
 	let user = request.user;
 // 	console.log(user._id);
+  if (!linkedPicture) {
+    response.status(400).end("Nothing to unlink to!");
+  }
   picture.findOne({'_id': linkedPicture.pictureId}, function(err, results) { 
       if (err) throw err;
       if (results.linkers.includes(user._id.toString()) ){

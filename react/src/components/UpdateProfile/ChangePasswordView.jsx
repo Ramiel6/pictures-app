@@ -25,17 +25,15 @@ const validate = values => {
 
 const renderTextField = ({ input, name, type, meta: { touched, error }, ...custom }) => (
      
-  <Form.Group inline style={{marginLeft:'27.5%'}}>
-      <Form.Input 
-          width={10}
+  <Form.Field error = {touched && error}>
+      <input
           name={name}
           type={type}
-          error = {touched && error}
           {...input}
           {...custom}
         />
-        {(touched && error) && <Label basic color='red' pointing='left'>{error}</Label> }
-    </Form.Group>
+        {(touched && error) && <Label basic color='red' pointing>{error}</Label> }
+    </Form.Field>
       
 );
 
@@ -55,7 +53,7 @@ let ChangePasswordView = props => {
     >
     
       <Grid.Row>
-      <Grid.Column textAlign='center'>
+      <Grid.Column textAlign='center' mobile={14} computer={8} width={8}>
         <Form onSubmit={handleSubmit}>
           
             <Field component={renderTextField}
@@ -82,9 +80,9 @@ let ChangePasswordView = props => {
               placeholder='Confirm New Password'
             />
            
-            <Button color='teal' type='submit' style={{width:'45%'}} size='large' loading={submitting} disabled={submitting}>Change</Button>
+            <Button color='teal' type='submit' fluid size='large' loading={submitting} disabled={submitting}>Change</Button>
             {error && <Message 
-              style={{width:'45%', marginLeft:'27.5%'}}
+              fluid
               negative
               content={error}
             />}

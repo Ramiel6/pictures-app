@@ -21,17 +21,15 @@ const validate = values => {
 
 const renderTextField = ({ input, name, type, meta: { touched, error }, ...custom }) => (
      
-  <Form.Group inline style={{marginLeft:'27.5%'}}>
-      <Form.Input 
-          width={10}
+  <Form.Field error = {touched && error}>
+      <input 
           name={name}
           type={type}
-          error = {touched && error}
           {...input}
           {...custom}
         />
-        {(touched && error) && <Label basic color='red' pointing='left'>{error}</Label> }
-    </Form.Group>
+        {(touched && error) && <Label basic color='red' pointing>{error}</Label> }
+    </Form.Field>
       
 );
 
@@ -59,7 +57,7 @@ let EditProfileView = props => {
       </Grid.Row>
       
     <Grid.Row>
-      <Grid.Column textAlign='center'>
+      <Grid.Column textAlign='center' >
         { profilePicError && <Label basic color='red' pointing='below'>Broken Url</Label> }
         <Image 
           centered 
@@ -73,7 +71,7 @@ let EditProfileView = props => {
     </Grid.Row>
     
     <Grid.Row>
-      <Grid.Column textAlign='center'>
+      <Grid.Column textAlign='center' mobile={14} computer={8} width={8}>
         <Form onSubmit={handleSubmit}>
           
             <Field component={renderTextField}
@@ -92,9 +90,9 @@ let EditProfileView = props => {
               placeholder='Profile Picture URL'
             />
            
-            <Button color='teal' type='submit' style={{width:'45%'}} size='large' loading={submitting} disabled={profilePicError || submitting}>Change</Button>
+            <Button color='teal' type='submit' fluid size='large' loading={submitting} disabled={profilePicError || submitting}>Change</Button>
             {error && <Message
-              style={{width:'45%', marginLeft:'27.5%'}}
+              fluid
               negative
               content={error}
             />}
