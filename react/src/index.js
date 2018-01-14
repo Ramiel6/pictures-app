@@ -7,7 +7,7 @@ import './semantic/semantic.min.css';
 import  AppRouter  from './components/AppRouter.jsx';
 import './global.css';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 
 import store from './redux/configureStore';
@@ -21,4 +21,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();
+// registerServiceWorker();
